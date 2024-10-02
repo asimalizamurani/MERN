@@ -83,3 +83,23 @@ let worldCities = europeanCities.concat(asianCities);
 
 // console.log(worldCities);
 // let worldCities = [...europeanCities, ...asianCities];
+
+/* 
+9. You have an array named `teaMenu` containing `"masala chai"`, `"oolong tea"`, `"green tea"`, and `"earl grey"`.
+    Find the length of the array and store it in a variable named `menuLenght`.
+*/
+
+let teaMenu = ["masala chai", "oolong tea", "green tea", "earl grey"]
+
+let menuLenght = teaMenu.length;
+// console.log(menuLenght);
+
+/* 
+10. You have an array named `cityBucketList` containing `"Kyoto"`, `"London"`, `"Cape Town"`, and `"Vancouver"`.
+    Check if `"London"` is in the array and store the result in a variable named `isLondonInList`.
+*/
+
+let cityBucketList = ["Kyoto", "London", "Cape Town", "Vancouver"];
+
+let isLondonInList = cityBucketList.includes("London");
+// console.log(isLondonInList);
