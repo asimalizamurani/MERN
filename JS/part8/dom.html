@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript DOM With Challenges</title>
+</head>
+<style>
+    body {
+        background-color: #1a1a1a;
+        color: #fff;
+        text-align: center;
+    }
+    .highlight {
+        background-color: yellow;
+        font-weight: bold;
+        color: #1a1a1a;
+    }
+    .hidden {
+        display: none;
+    }
+    li {
+        list-style: none;
+    }
+</style>
+<body>
+    <h1>Lets Learn DOM in JS</h1>
+
+    <!-- Example 1: Accessing DOM Elements -->
+    <section id="example-1">
+        <h2>Accessing DOM Elements</h2>
+    <p id="myParagraph">This is a paragraph. Click the button to change me!</p>
+    <button id="changeTextButton">Change Text</button>
+    </section>
+
+    <!-- Example 2: Traversin the DOM -->
+    <section id="example-2">
+        <h2>Traversin the DOM</h2>
+        <ul id="cities">
+    <li>New York</li>
+    <li>Tokyo</li>
+    <li>Paris</li>
+    <li>London</li>
+</ul>
+    <button id="highlightButton">Highlight First City</button>
+    </section>
+
+    <!-- Example 3: Manipulating DOM Elements -->
+    <section id="example-3">
+        <h2>Manipulating DOM Elements</h2>
+    <div class="coffeeOrder">Order: <span id="coffeeType">
+        Latte
+    </span></div>
+    <button id="changeOrder">Change Order to Espresso</button>
+    </section>
+
+    <!-- Example 4: Creating and inserting Elements -->
+    <section id="example-4">
+        <h2>Creating and inserting Elements</h2>
+        <button id="addNewItem">Add a New Item to the Shopping List</button>
+    <ul id="shoppingList">
+        <li>Milk</li>
+        <li>Bread</li>
+    </ul>
+    </section>
+
+    <!-- Example 5: Remove DOM Elements -->
+    <section id="example-5">
+        <h2>Removing DOM Elements</h2>
+        <ul id="taskList">
+            <li>Task 1</li>
+            <li>Task 2</li>
+            <li>Task 3</li>
+        </ul>
+        <button id="removeLastTask">Remove last Task</button>
+    </section>
+
+    <script src="./main.js"></script>
+</body>
+</html>
