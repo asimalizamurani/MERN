@@ -22,6 +22,18 @@
     li {
         list-style: none;
     }
+
+    .feedbackMessage {
+        background-color: lightseagreen;
+        color: #000;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 18px;
+        padding: 10px;
+        font-weight: 500;
+        border-radius: 5px;
+        width: 60%;
+        margin: 1em auto;
+    }
 </style>
 <body>
     <h1>Lets Learn DOM in JS</h1>
@@ -72,8 +84,51 @@
             <li>Task 2</li>
             <li>Task 3</li>
         </ul>
-        <button id="removeLastTask">Remove last Task</button>
+        <button id="removeLastTask"
+        
+        >Remove last Task</button>
     </section>
+
+    <!-- Example 6: Event Handling in the DOM -->
+     <section id="example-6">
+        <h2>Event Handling in the DOM</h2>
+        <button id="clickMeButton">Click me!</button>
+     </section>
+
+     <!-- Example 7: Event Delegation -->
+      <section id="example-7">
+        <h2>Event Delegation</h2>
+        <ul id="teaList">
+            <li class="teaItem">Green Tea</li>
+            <li class="teaItem">Black Tea</li>
+            <li class="teaItem">Oolong Tea</li>
+        </ul>
+        <p>Click on any tea to select it!</p>
+      </section>
+
+      <!-- Example 8: Form Handling -->
+       <section id="example-8">
+        <h2>Form Handling</h2>
+        <form id="feedbackForm">
+            <label for="feedbackInput">Your Feedback:</label>
+            <input type="text" id="feedbackInput" placeholder="Enter feedback">
+            <button type="submit">Submit Feedback</button>
+        </form>
+        <p id="feedbackDisplay"></p>
+       </section>
+
+       <!-- Example 9: Dom Content Loaded -->
+        <section id="example-9">
+            <h2>Dom Content Loaded</h2>
+            <p id="domStatus">Waiting for DOM to load...</p>
+        </section>
+
+        <!-- Example 10: CSS Classes Manipulation -->
+        <section id="example-10">
+            <h2>CSS Classes Manipulation</h2>
+            <p id="descriptionText">This text will change color!</p>
+            <button id="toggleHighlight">Toggle Highlight</button>
+        </section>
 
     <script src="./main.js"></script>
 </body>
