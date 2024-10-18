@@ -16,6 +16,7 @@ let gen = numberGenerator(); // Create an instance of the number generator
 let genTwo = numberGenerator(); // Create another instance of the number generator
 
 // Using the iterator to retrieve values from the generator
+// Iterators return an object with next() method which produces a sequence of values.
 console.log(gen.next().value); // Outputs: 1
 console.log(gen.next().value); // Outputs: 2
 console.log(gen.next().value); // Outputs: 3
