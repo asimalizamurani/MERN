@@ -1,0 +1,140 @@
+/* Reset some default styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #e1e1e1;
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1, h2 {
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+}
+
+#product-list, #cart-items {
+  margin-bottom: 20px;
+}
+
+#product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.product {
+  width: 150px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.product h3 {
+  font-size: 1.1em;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.product p {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.product button {
+  padding: 8px 10px;
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.product button:hover {
+  background-color: #45a049;
+}
+
+#cart-items {
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
+}
+
+#empty-cart {
+  text-align: center;
+  color: #999;
+}
+
+#cart-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+#cart-total.hidden {
+  display: none;
+}
+
+#total-price {
+  font-size: 1.2em;
+  color: #333;
+}
+
+#checkout-btn {
+  color: #fff;
+  background-color: #007BFF;
+}
+
+#remove-btn {
+  color: #fff;
+  background-color: #ff0000;
+}
+
+#remove-btn:hover {
+  background-color: #d33;
+}
+
+.btn {
+  padding: 10px 15px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#checkout-btn:hover {
+  background-color: #0056b3;
+}
+
+.hidden {
+  display: none;
+}
