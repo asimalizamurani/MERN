@@ -31,6 +31,12 @@ const listTasks = () => {
   tasks.forEach((task, index) => console.log(`${index + 1} - ${task.task}`))
 }
 
+const removeTask = (index) => {
+  const tasks = loadTasks()
+  tasks.splice(index, 1)
+  saveTasks(tasks)
+}
+
 const command = process.argv[2]
 const argument = process.argv[3]
 
