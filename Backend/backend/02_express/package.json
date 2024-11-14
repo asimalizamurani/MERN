@@ -1,0 +1,23 @@
+{
+  "name": "coder",
+  "version": "1.0.0",
+  "description": "create and deploy it",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "coder",
+    "js"
+  ],
+  "author": "Asim Ali",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
