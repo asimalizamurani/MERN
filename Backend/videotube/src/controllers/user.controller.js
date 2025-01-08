@@ -6,6 +6,7 @@ import {
   deleteFromCloudinary,
 } from "../utils/cloudinary.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
+import { jwt } from "jsonwebtoken";
 
 // Helper Function To Generate Access and Refresh tokens
 const generateAccessAndRefreshTokens = async (userId) => {
@@ -168,25 +169,78 @@ const loginUser = asyncHandler(async (req, res) => {
     loggedInUser
   );
 
-  if(!loggedInUser) {
+  if (!loggedInUser) {
     throw new ApiError(500, "Something went wrong while logging in a user");
   }
 
   const options = {
     httpOnly: true, // these are not modifiable from client side
     secure: process.env.NODE_ENV === "production",
-  }
+  };
 
   return res
-  .status(200)
-  .cookie("accessToken", accessToken, options)
-  .cookie("refreshToken", refreshToken, options)
-  .json(new ApiResponse(
-    201,
-  { user: loggedInUser, accessToken, refreshToken},
-  "User logged in successfully"
-))
-  
+    .status(200)
+    .cookie("accessToken", accessToken, options)
+    .cookie("refreshToken", refreshToken, options)
+    .json(
+      new ApiResponse(
+        201,
+        { user: loggedInUser, accessToken, refreshToken },
+        "User logged in successfully"
+      )
+    );
 });
 
-export { registerUser, loginUser };
+const refreshAccessToken = asyncHandler(async (req, res) => {
+  const incomingRefreshToken = req.cookie.refreshToken || req.body.refreshToken;
+
+  if (!incomingRefreshToken) {
+    throw new ApiError(401, "Refresh token is required");
+  }
+
+  try {
+    const decodedToken = jwt.verify(
+      incomingRefreshToken,
+      process.env.REFRESH_TOKEN_SECRET
+    );
+    // here (?) optional checks there can be a user or not
+    const user = await User.findById(decodedToken?._id);
+
+    if (!user) {
+      throw new ApiError(403, "Invalid refresh token");
+    }
+
+    if (incomingRefreshToken !== user?.refreshToken) {
+      throw new ApiError(403, "Invalid refresh token");
+    }
+
+    const { accessToken, refreshToken: newRefreshToken } =
+      await generateAccessAndRefreshTokens(user._id);
+
+    return res
+      .status(200)
+      .cookie("accessToken", accessToken, options)
+      .cookie("refreshToken", newRefreshToken, options)
+      .json(
+        new ApiResponse(
+          200,
+          { accessToken, refreshToken: newRefreshToken },
+          "Access token refreshed successfully"
+        )
+      );
+  } catch (error) {
+    throw new ApiError(500, "Something went wrong while refreshing access token")
+  }
+});
+
+const logoutUser = asyncHandler(async (req, res) => {
+  await User.findByIdAndUpdate(
+    // TODO: need to come back here after middleware
+  )
+})
+
+export { 
+   registerUser,
+   loginUser,
+   refreshAccessToken
+ };
