@@ -229,18 +229,43 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
         )
       );
   } catch (error) {
-    throw new ApiError(500, "Something went wrong while refreshing access token")
+    throw new ApiError(
+      500,
+      "Something went wrong while refreshing access token"
+    );
   }
 });
 
 const logoutUser = asyncHandler(async (req, res) => {
-  await User.findByIdAndUpdate(
-    // TODO: need to come back here after middleware
-  )
-})
+  const checkItOut = await User.findByIdAndUpdate(
+    req.user._id,
+    {
+      $set: {
+        refreshToken: undefined,
+      },
+    },
+    { new: true }
+  );
+  console.log(
+    "Asim You wanted to check this see the output when you logout and making refresh token undefined",
+    checkItOut
+  );
+
+  const options = {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+  };
+
+  return res
+    .status(200)
+    .clearCookies("accessToken", options)
+    .clearCookies("refreshToken", options)
+    .json(new ApiResponse(200, {}, "User logged out successfully"));
+});
 
 export { 
-   registerUser,
+  registerUser,
    loginUser,
-   refreshAccessToken
+    refreshAccessToken,
+  logoutUser
  };
