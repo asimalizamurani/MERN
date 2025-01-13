@@ -2,10 +2,9 @@ import jwt from "jsonwebtoken"
 import { User } from "../models/user.models.js"
 import { asyncHandler } from "../utils/asyncHandler.js"
 import { ApiError } from "../utils/ApiError.js";
-import { User } from './../models/user.models';
 
 // here we don't want to use req so we have to user underscore   _
-export const verifyJWT = asyncHandler( async (req, _, next)) => {
+export const verifyJWT = asyncHandler( async (req, _, next) => {
   const token = req.cookies.accessToken || req.headers("Authorization")?.replace("Bearer ", "")
 
   if(!token) {
@@ -28,4 +27,4 @@ export const verifyJWT = asyncHandler( async (req, _, next)) => {
     throw new ApiError(401, error?.message || "Invalid access token")
   }
 
-}
+});
