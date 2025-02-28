@@ -7,8 +7,14 @@ function App() {
   // let counter = 13;
 
   const addValue = () => {
-    if (counter >= 0 && counter <20) counter += 1;
-    setCounter(counter)
+    if (counter >= 0 && counter <20){
+      setCounter(counter + 1)
+
+      // In these three lines setConter function is stroing the previos value of counter and then adding 1 to it. when we click on the counter button the value will be incremented from 0 to 3
+      /* setCounter(prevCounter => prevCounter + 1)
+      setCounter(prevCounter => prevCounter + 1)
+      setCounter(prevCounter => prevCounter + 1) */
+    }
   }
 
   const removeValue = () => {
