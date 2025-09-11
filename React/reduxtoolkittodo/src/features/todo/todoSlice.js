@@ -3,7 +3,7 @@ const initialState = {
   todos: [
     {
       id: 1,
-      text: "Hello bro"
+      text: "Hello bro this todo added by default"
     }
   ]
 }
